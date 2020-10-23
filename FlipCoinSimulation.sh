@@ -3,7 +3,7 @@ echo "Welcome to Flip Coin Simulation Program"
 tails=0;
 heads=0;
 i=0;
-while [ $tails -lt 21 -a $heads -lt 21 ]
+while [ true ]
 do
 	TossCheck=$((RANDOM%2));
 	if [ $TossCheck -eq 0 ];
