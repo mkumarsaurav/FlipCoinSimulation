@@ -9,16 +9,23 @@ do
 	if [ $TossCheck -eq 0 ];
 	then
 		tails=$(($tails+1));
-		echo Tails Win;
+		echo Tails;
 	else
 		heads=$(($heads+1));
-		echo Heads Win;
+		echo Heads;
+	fi
+
+	diffT=$(($tails-$heads));
+	diffH=$(($heads-$tails));
+
+	if [ $tails -ge 21 -a $diffT -ge 2  ]
+	then
+		echo "Tails won by: "$(($tails-$heads));
+		break;
+	elif [ $heads -ge 21 -a $diffH -ge 2 ]
+	then
+		echo "Heads won by: " $(($heads-$tails));
+		break;
 	fi
 done
 echo "Heads Count :"$heads "and Tails Count : " $tails;
-if [ $heads -gt $tails ]
-then
-   echo "Heads won by: " $(($heads-$tails));
-else
-   echo "Tails won by: "$(($tails-$heads));
-fi
